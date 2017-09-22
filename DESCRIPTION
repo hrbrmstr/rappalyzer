@@ -1,0 +1,29 @@
+Package: rappalyzer
+Type: Package
+Title: Identify Technologies Used On Websites
+Version: 0.1.0
+Date: 2017-09-22
+Author: Bob Rudis (bob@rud.is)
+Maintainer: Bob Rudis <bob@rud.is>
+Description: The 'Wappalyzer' project <https://wappalyzer.com/> maintains a database
+   of features that can be compared and combined to identify what technologies -- servers,
+   frameworks, analytics tools, etc. -- are being used by a target web site. Methods are
+   provided that mimic the functionality of 'Wappalyzer' in R.
+URL: https://github.com/hrbrmstr/rappalyzer
+BugReports: https://github.com/hrbrmstr/rappalyzer/issues
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    purrr,
+    stringi,
+    dplyr,
+    jsonlite,
+    ore,
+    rvest,
+    xml2,
+    httr
+RoxygenNote: 6.0.1

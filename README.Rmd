@@ -1,0 +1,54 @@
+---
+output: rmarkdown::github_document
+---
+
+# rappalyzer
+
+Identify Technologies Used On Websites
+
+**WIP** - basic tech stack identification is complete but versions and more metadata need to be added
+
+## Description
+
+The 'Wappalyzer' project <https://wappalyzer.com/> maintains a database
+of features that can be compared and combined to identify what technologies -- servers,
+frameworks, analytics tools, etc. -- are being used by a target web site. Methods are
+provided that mimic the functionality of 'Wappalyzer' in R.
+
+## Contents
+
+The following functions are implemented:
+
+- `rappalyze` :  Identify technologies used on a given site/URL
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/rappalyzer")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(rappalyzer)
+
+# current verison
+packageVersion("rappalyzer")
+
+rappalyze("https://rud.is/b")
+
+rappalyze("https://blog.rapid7.com")
+
+rappalyze("https://community.rstudio.com")
+
+rappalyze("https://www.quantcast.com")
+
+rappalyze("https://jquery.com/")
+
+rappalyze("https://wappalyzer.com")
+```
+
