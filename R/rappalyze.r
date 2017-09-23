@@ -1,7 +1,12 @@
 #' Identify technologies used on a given site/URL
 #'
+#' Filenames returned in the `icon` column can be retrieved via the
+#' [rapp_icon()] helper function.
+#'
+#' @md
 #' @param site either a URL (which will be fetched with `httr::GET()`) or an `httr` `response` object
 #' @param verbose display progress messages (some sites take a few seconds to analyze)
+#' @return nested data frame of technology matches or an empty data frame
 #' @export
 #' @examples
 #' rappalyze("https://rud.is/b")
@@ -30,7 +35,12 @@ rappalyze <- function(site, quiet = !interactive()) {
   res <- dplyr::bind_rows(url_check, html_check, meta_check, script_check, header_check)
   res <- dplyr::distinct(res)
 
-  if (nrow(res) > 0) res$url <- site$url
+  if (nrow(res) > 0) {
+
+    res$url <- site$url
+    res <- dplyr::left_join(res, .pkgenv$rapp_join_df, by="match_app")
+
+  }
 
   res
 

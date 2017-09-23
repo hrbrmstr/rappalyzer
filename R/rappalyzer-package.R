@@ -12,5 +12,5 @@
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_attr html_text
 #' @importFrom jsonlite fromJSON
-#' @importFrom dplyr data_frame as_data_frame bind_rows distinct
+#' @importFrom dplyr data_frame as_data_frame bind_rows distinct left_join
 NULL

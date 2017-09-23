@@ -1,5 +1,7 @@
 ---
 output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 # rappalyzer
@@ -19,7 +21,9 @@ provided that mimic the functionality of 'Wappalyzer' in R.
 
 The following functions are implemented:
 
-- `rappalyze` :  Identify technologies used on a given site/URL
+- `rappalyze`:	Identify technologies used on a given site/URL
+- `rapp_icon`:	Provide the full path to the "icon" file within the package
+- `rebuild_apps_inventory`:	Rebuild apps inventory with a different master file
 
 ## Installation
 
@@ -35,19 +39,20 @@ options(width=120)
 
 ```{r message=FALSE, warning=FALSE, error=FALSE}
 library(rappalyzer)
+library(tidyverse)
 
 # current verison
 packageVersion("rappalyzer")
 
-rappalyze("https://rud.is/b")
+rappalyze("https://rud.is/b") %>% unnest()
 
 rappalyze("https://blog.rapid7.com")
 
-rappalyze("https://community.rstudio.com")
+rappalyze("https://community.rstudio.com") %>% unnest()
 
 rappalyze("https://www.quantcast.com")
 
-rappalyze("https://jquery.com/")
+rappalyze("https://jquery.com/") %>% unnest()
 
 rappalyze("https://wappalyzer.com")
 ```
