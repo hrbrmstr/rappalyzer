@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.r
 \name{rapp_icon}
 \alias{rapp_icon}
-\title{Provide the full path to the "icon" file within the package}
+\title{Provide the full URL to the "icon" file within the package}
 \usage{
 rapp_icon(icon_ref)
 }
@@ -11,7 +11,7 @@ rapp_icon(icon_ref)
 returned via a call to \code{\link[=rappalyze]{rappalyze()}}.}
 }
 \description{
-Provide the full path to the "icon" file within the package
+Provide the full URL to the "icon" file within the package
 }
 \examples{
 rapp_icon("Nginx.svg")

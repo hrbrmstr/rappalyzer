@@ -9,7 +9,7 @@ rappalyze(site, quiet = !interactive())
 \arguments{
 \item{site}{either a URL (which will be fetched with \code{httr::GET()}) or an \code{httr} \code{response} object}
 
-\item{verbose}{display progress messages (some sites take a few seconds to analyze)}
+\item{quiet}{display progress messages (some sites take a few seconds to analyze)}
 }
 \value{
 nested data frame of technology matches or an empty data frame

@@ -5,7 +5,7 @@
 #'
 #' @md
 #' @param site either a URL (which will be fetched with `httr::GET()`) or an `httr` `response` object
-#' @param verbose display progress messages (some sites take a few seconds to analyze)
+#' @param quiet display progress messages (some sites take a few seconds to analyze)
 #' @return nested data frame of technology matches or an empty data frame
 #' @export
 #' @examples
