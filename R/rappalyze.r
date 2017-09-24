@@ -26,7 +26,7 @@ rappalyze <- function(site, quiet = !interactive()) {
   if (!quiet) message("Analyzing HTML content...")
   html_check <- check_html(site)
 
-  if (!quiet) message("Analyzing <metga> tags...")
+  if (!quiet) message("Analyzing <meta> tags...")
   meta_check <- check_meta(site)
 
   if (!quiet) message("Analyzing <script> tags...")
