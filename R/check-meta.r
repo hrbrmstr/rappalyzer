@@ -1,8 +1,22 @@
 check_meta <- function(site_html) {
 
-  if (inherits(site_html, "response")) site_html <- httr::content(site_html, as="parsed", encoding="UTF-8")
-  if (inherits(site_html, "character")) site_html <- xml2::read_html(site_html)
-  if (is.raw(site_html)) site_html <- xml2::read_html(site_html)
+  if (inherits(site_html, "response")) {
+    site_html <- s_content(site_html, as="parsed", encoding="UTF-8")
+    if (is.null(site_html$result)) return(data_frame())
+    site_html <- site_html$result
+  }
+
+  if (inherits(site_html, "character")) {
+    site_html <- s_read_html(site_html)
+    if (is.null(site_html$result)) return(data_frame())
+    site_html <- site_html$result
+  }
+
+  if (is.raw(site_html)) {
+    site_html <- s_read_html(site_html)
+    if (is.null(site_html$result)) return(data_frame())
+    site_html <- site_html$result
+  }
 
   meta_tags <- rvest::html_nodes(site_html, "meta[name]")
 

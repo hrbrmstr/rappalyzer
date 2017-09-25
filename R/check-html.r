@@ -1,6 +1,11 @@
 check_html <- function(site_html) {
 
-  if (inherits(site_html, "response")) site_html <- httr::content(site_html, as="text", encoding="UTF-8")
+  if (inherits(site_html, "response")) {
+    site_html <- s_content(site_html, as="text", encoding="UTF-8")
+    if (is.null(site_html$result)) return(data_frame())
+    site_html <- site_html$result
+  }
+
   if (is.raw(site_html)) site_html <- readBin(site_html, character())
 
   app_html <- .pkgenv$html
