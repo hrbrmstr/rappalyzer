@@ -2,7 +2,7 @@ check_url <- function(site_url) {
 
   app_urls <- .pkgenv$urls
 
-  purrr::map(app_urls, c("url", "main")) %>%
+  purrr::map(app_urls, c("url", "pat", "main")) %>%
     map_lgl(~.x %~% site_url) %>%
     purrr::keep(`==`, TRUE) -> res
 

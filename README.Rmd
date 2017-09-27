@@ -8,7 +8,7 @@ editor_options:
 
 Identify Technologies Used On Websites
 
-**WIP** - basic tech stack identification is complete but versions and more metadata need to be added
+**WIP** - basic tech stack identification is complete and some version info seems to be working but I think there's an isssue with the regexes & compatibility with `ore`.
 
 ## Description
 

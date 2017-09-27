@@ -28,16 +28,39 @@ check_meta <- function(site_html) {
   purrr::map(app_meta, ~{
     targets <- intersect(names(.x$meta), names(site_meta))
     if (length(targets) > 0) {
-      meta <- .x$meta
-      map_lgl(targets, ~meta[[.x]]$main %~% site_meta[[.x]]) %>%
-        keep(`==`, TRUE)
+      met <- .x$meta
+      purrr::map(targets, ~{
+        ret <- list(m = ore_search(met[[.x]]$pat$main, site_meta[[.x]]))
+        ret$found <- !is.null(ret$m)
+        if (ret$found) {
+          if (!is.null(met[[.x]]$pat$attrs)) {
+            for (i in 1:length(met[[.x]]$pat$attrs)) {
+              field <- names(met[[.x]]$pat$attrs)
+              if (grepl("\\\\", met[[.x]]$pat$attrs[[i]])) {
+                match_grp <- suppressWarnings(as.numeric(gsub("\\", "", met[[.x]]$pat$attrs[[i]], fixed=TRUE)))
+                ret[field] <- ret$m[match_grp, 1]
+              } else {
+                ret[field] <- met[[.x]]$pat$attrs[[i]]
+              }
+            }
+          }
+        }
+        ret$m <- NULL
+        ret$match_kind <-  "meta"
+        ret
+      }) %>%
+        keep(~.x$found)
     }
   }) %>%
-    purrr::discard(~length(.x) == 0) -> res
+    discard(~length(.x) == 0) -> res
 
   if (length(res) > 0) {
-    res <- data_frame(match_kind = "meta", match_app = names(res))
-    res
+
+    purrr::map_df(res, ~{
+      lst <- .x
+      purrr::map_df(lst, ~{ .x$found <- NULL ; .x })
+    }, .id="match_app")
+
   } else {
     data_frame()
   }
