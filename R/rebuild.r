@@ -69,8 +69,8 @@ rebuild_apps_inventory <- function(apps_js_file) {
       match_app = .x$app_name,
       implies = list(.x$implies %||% NA_character_),
       icon = .x$icon %||% NA_character_,
-      cat_name= map(.x$cats, ~apps$categories[[.x]]$name),
-      cat_priority = map(.x$cats, ~apps$categories[[.x]]$priority)
+      cat_name = purrr::map(.x$cats, ~apps$categories[[.x]]$name),
+      cat_priority = purrr::map(.x$cats, ~apps$categories[[.x]]$priority)
     )
   }) -> rapp_join_df
 

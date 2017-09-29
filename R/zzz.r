@@ -1,6 +1,6 @@
 .pkgenv <- new.env(parent=emptyenv())
 
-.onLoad <- function(...) {
+.onAttach <- function(...) {
 
   if (interactive()) packageStartupMessage("Building application inventory...")
 
