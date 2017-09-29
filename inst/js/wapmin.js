@@ -61,6 +61,8 @@ var addDetected = function(app, pattern, type, value, key) {
 
   app.detected = true;
 
+  app.match_type = type;
+
   // Set confidence level
   app.confidence[type + ' ' + (key ? key + ' ' : '') + pattern.regex] = pattern.confidence || 100;
 

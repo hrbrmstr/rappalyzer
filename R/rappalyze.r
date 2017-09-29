@@ -10,7 +10,7 @@ ua_chrome <- "Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 #'        `httr` `response` object (which is a `list` with `url`, `headers` and raw `content`)
 #' @param agent user agent to use. Ideally we'd be honest and say we're a bot. We don't since we
 #'        are trying to find out what a site is using tech-wise.
-#' @return eventually a data frame. for now, a character vector of tech found or `character(0)`
+#' @return data frame
 #' @export
 #' @examples
 #' rappalyze("https://rud.is/b")
@@ -28,11 +28,28 @@ rappalyze <- function(site, agent = NULL) {
 
   found <- .pkgenv$ctx$get("found", simplifyVector=FALSE, flatten=FALSE)
 
-  map(found, "name") %>%
-    discard(is.null) %>%
-    flatten_chr() -> out
+  if (length(found) > 0) {
 
-  if (length(out) > 0) sort(unique(out)) else out
+    map_df(found, ~{
+
+      conf <- if (length(.x$confidence) > 0) max(unlist(.x$confidence, use.names = FALSE)) else NA_real
+      vers <-  if (.x$version == "") NA_character_ else .x$version
+
+      data_frame(
+        tech = .x$name,
+        categories = .x$props$cats,
+        match_type = .x$match_type,
+        version = vers,
+        confidence = conf
+      )
+
+    }) %>%
+      distinct(tech, match_type, version, .keep_all=TRUE)
+
+  } else {
+    data_frame()
+  }
+
 
 }
 

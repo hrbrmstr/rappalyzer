@@ -42,29 +42,65 @@ packageVersion("rappalyzer")
 rappalyze("https://rud.is/b") 
 ```
 
-    ## [1] "Google Font API" "jQuery"          "Nginx"           "PHP"             "WordPress"
+    ## # A tibble: 5 x 5
+    ##              tech categories match_type version confidence
+    ##             <chr>     <list>      <chr>   <chr>      <int>
+    ## 1 Google Font API  <chr [1]>       html    <NA>        100
+    ## 2           Nginx  <chr [1]>    headers  1.11.2        100
+    ## 3             PHP  <chr [1]>    headers    <NA>        100
+    ## 4       WordPress  <chr [1]>     script    <NA>        100
+    ## 5          jQuery  <chr [1]>     script    <NA>        100
 
 ``` r
 rappalyze("https://blog.rapid7.com")
 ```
 
-    ## [1] "Amazon Cloudfront"  "Express"            "Ghost"              "Google Tag Manager" "Gravatar"          
-    ## [6] "jQuery"             "Nginx"              "Ubuntu"
+    ## # A tibble: 8 x 5
+    ##                 tech categories match_type version confidence
+    ##                <chr>     <list>      <chr>   <chr>      <int>
+    ## 1  Amazon Cloudfront  <chr [1]>    headers    <NA>        100
+    ## 2            Express  <chr [1]>    headers    <NA>        100
+    ## 3              Ghost  <chr [1]>       meta     1.7        100
+    ## 4 Google Tag Manager  <chr [1]>       html    <NA>        100
+    ## 5           Gravatar  <chr [1]>       html    <NA>        100
+    ## 6              Nginx  <chr [1]>    headers  1.10.3        100
+    ## 7             Ubuntu  <chr [1]>    headers    <NA>        100
+    ## 8             jQuery  <chr [1]>     script    <NA>        100
 
 ``` r
 rappalyze("https://community.rstudio.com") 
 ```
 
-    ## [1] "Discourse" "jQuery"    "Nginx"
+    ## # A tibble: 3 x 5
+    ##        tech categories match_type version confidence
+    ##       <chr>     <list>      <chr>   <chr>      <int>
+    ## 1 Discourse  <chr [1]>       meta   1.9.0        100
+    ## 2     Nginx  <chr [1]>    headers  1.11.8        100
+    ## 3    jQuery  <chr [1]>     script    <NA>        100
 
 ``` r
 rappalyze("https://jquery.com/")
 ```
 
-    ## [1] "CloudFlare" "Debian"     "jQuery"     "Modernizr"  "Nginx"      "PHP"        "WordPress"
+    ## # A tibble: 7 x 5
+    ##         tech categories match_type version confidence
+    ##        <chr>     <list>      <chr>   <chr>      <int>
+    ## 1 CloudFlare  <chr [1]>    headers    <NA>        100
+    ## 2     Debian  <chr [1]>    headers    <NA>        100
+    ## 3  Modernizr  <chr [1]>     script    <NA>        100
+    ## 4      Nginx  <chr [1]>    headers    <NA>        100
+    ## 5        PHP  <chr [1]>    headers  5.4.45        100
+    ## 6  WordPress  <chr [1]>       meta   4.5.2        100
+    ## 7     jQuery  <chr [1]>     script  1.11.3        100
 
 ``` r
 rappalyze("https://wappalyzer.com")
 ```
 
-    ## [1] "Amazon Cloudfront" "Nginx"             "Swiftlet"          "Ubuntu"
+    ## # A tibble: 4 x 5
+    ##                tech categories match_type version confidence
+    ##               <chr>     <list>      <chr>   <chr>      <int>
+    ## 1 Amazon Cloudfront  <chr [1]>    headers    <NA>        100
+    ## 2             Nginx  <chr [1]>    headers  1.10.3        100
+    ## 3          Swiftlet  <chr [1]>    headers    <NA>        100
+    ## 4            Ubuntu  <chr [1]>    headers    <NA>        100

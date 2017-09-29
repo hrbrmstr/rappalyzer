@@ -14,7 +14,7 @@ rappalyze(site, agent = NULL)
 are trying to find out what a site is using tech-wise.}
 }
 \value{
-eventually a data frame. for now, a character vector of tech found or \code{character(0)}
+data frame
 }
 \description{
 Filenames returned in the \code{icon} column can be retrieved via the
