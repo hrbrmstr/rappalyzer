@@ -19,10 +19,7 @@ Depends:
     R (>= 3.2.0)
 Imports:
     purrr,
-    stringi,
-    dplyr,
     jsonlite,
-    ore,
     rvest,
     xml2,
     httr

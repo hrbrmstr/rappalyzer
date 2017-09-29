@@ -8,7 +8,7 @@ editor_options:
 
 Identify Technologies Used On Websites
 
-**WIP** - basic tech stack identification is complete and some version info seems to be working but I think there's an isssue with the regexes & compatibility with `ore`.
+**WIP** - Stay tuned!
 
 ## Description
 
@@ -22,8 +22,6 @@ provided that mimic the functionality of 'Wappalyzer' in R.
 The following functions are implemented:
 
 - `rappalyze`:	Identify technologies used on a given site/URL
-- `rapp_icon`:	Provide the full path to the "icon" file within the package
-- `rebuild_apps_inventory`:	Rebuild apps inventory with a different master file
 
 ## Installation
 
@@ -44,15 +42,13 @@ library(tidyverse)
 # current verison
 packageVersion("rappalyzer")
 
-rappalyze("https://rud.is/b") %>% unnest()
+rappalyze("https://rud.is/b") 
 
 rappalyze("https://blog.rapid7.com")
 
-rappalyze("https://community.rstudio.com") %>% unnest()
+rappalyze("https://community.rstudio.com") 
 
-rappalyze("https://www.quantcast.com")
-
-rappalyze("https://jquery.com/") %>% unnest()
+rappalyze("https://jquery.com/")
 
 rappalyze("https://wappalyzer.com")
 ```
