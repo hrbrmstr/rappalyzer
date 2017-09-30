@@ -8,9 +8,9 @@
 #' @name rappalyzer
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
-#' @import stringi ore purrr httr
+#' @import V8 purrr httr
+#' @importFrom dplyr data_frame distinct
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_attr html_text
 #' @importFrom jsonlite fromJSON
-#' @importFrom dplyr data_frame as_data_frame bind_rows distinct left_join
 NULL

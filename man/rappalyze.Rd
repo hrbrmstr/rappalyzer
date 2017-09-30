@@ -4,15 +4,17 @@
 \alias{rappalyze}
 \title{Identify technologies used on a given site/URL}
 \usage{
-rappalyze(site, quiet = !interactive())
+rappalyze(site, agent = NULL)
 }
 \arguments{
-\item{site}{either a URL (which will be fetched with \code{httr::GET()}) or an \code{httr} \code{response} object}
+\item{site}{either a URL (which will be fetched with \code{httr::GET()}) or a "minimum viable"
+\code{httr} \code{response} object (which is a \code{list} with \code{url}, \code{headers} and raw \code{content})}
 
-\item{quiet}{display progress messages (some sites take a few seconds to analyze)}
+\item{agent}{user agent to use. Ideally we'd be honest and say we're a bot. We don't since we
+are trying to find out what a site is using tech-wise.}
 }
 \value{
-nested data frame of technology matches or an empty data frame
+data frame
 }
 \description{
 Filenames returned in the \code{icon} column can be retrieved via the
