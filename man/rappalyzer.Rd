@@ -3,7 +3,6 @@
 \docType{package}
 \name{rappalyzer}
 \alias{rappalyzer}
-\alias{rappalyzer-package}
 \title{Identify Technologies Used On Websites}
 \description{
 The 'Wappalyzer' project <https://wappalyzer.com/> maintains a database

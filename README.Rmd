@@ -3,53 +3,63 @@ output: rmarkdown::github_document
 editor_options: 
   chunk_output_type: console
 ---
+```{r pkg-knitr-opts, include=FALSE}
+hrbrpkghelpr::global_opts()
+```
 
-# rappalyzer
+```{r badges, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::stinking_badges(branch = "master")
+```
 
-Identify Technologies Used On Websites
+```{r description, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::yank_title_and_description()
+```
 
-**WIP** - Stay tuned!
+## IMPORTANT
 
-## Description
+This package has been updated to use Wappalyzer v6.10.40.
 
-The 'Wappalyzer' project <https://wappalyzer.com/> maintains a database
-of features that can be compared and combined to identify what technologies -- servers,
-frameworks, analytics tools, etc. -- are being used by a target web site. Methods are
-provided that mimic the functionality of 'Wappalyzer' in R.
+It is still a major WIP.
 
-## Contents
+You will temporarily need to do your own "joins" for applications, categories and groups via `wap_application()`, `wap_categories()`,  and `wap_groups()`.
+
+## What's Inside The Tin
 
 The following functions are implemented:
 
-- `rappalyze`:	Identify technologies used on a given site/URL
+```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::describe_ingredients()
+```
 
 ## Installation
 
-```{r eval=FALSE}
-devtools::install_github("hrbrmstr/rappalyzer")
-```
-
-```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
-options(width=120)
+```{r install-ex, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::install_block()
 ```
 
 ## Usage
 
-```{r message=FALSE, warning=FALSE, error=FALSE}
+```{r lib-ex}
 library(rappalyzer)
-library(tidyverse)
-
-# current verison
+library(ragg)
+# current version
 packageVersion("rappalyzer")
-
-rappalyze("https://rud.is/b") 
-
-rappalyze("https://blog.rapid7.com")
-
-rappalyze("https://community.rstudio.com") 
-
-rappalyze("https://jquery.com/")
-
-rappalyze("https://wappalyzer.com")
 ```
 
+```{r some-wapples}
+rappalyze("https://rud.is/b") 
+
+rappalyze("https://greynoise.io/blog")
+
+rappalyze("https://docs.rs/") 
+
+rappalyze("https://tailwindcss.com/")
+
+rappalyze("https://example.com")
+```
+
+## rappalyzer Metrics
+
+```{r cloc, echo=FALSE}
+cloc::cloc_pkg_md()
+```

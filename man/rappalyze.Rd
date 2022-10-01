@@ -23,5 +23,4 @@ Filenames returned in the \code{icon} column can be retrieved via the
 \examples{
 rappalyze("https://rud.is/b")
 rappalyze("https://www.quantcast.com")
-rappalyze("https://wappalyzer.com")
 }

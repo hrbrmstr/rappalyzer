@@ -1,8 +1,8 @@
 Package: rappalyzer
 Type: Package
 Title: Identify Technologies Used On Websites
-Version: 0.1.0
-Date: 2017-09-22
+Version: 0.2.0
+Date: 2022-10-01
 Author: Bob Rudis (bob@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
 Description: The 'Wappalyzer' project <https://wappalyzer.com/> maintains a database
@@ -11,12 +11,13 @@ Description: The 'Wappalyzer' project <https://wappalyzer.com/> maintains a data
    provided that mimic the functionality of 'Wappalyzer' in R.
 URL: https://github.com/hrbrmstr/rappalyzer
 BugReports: https://github.com/hrbrmstr/rappalyzer/issues
-License: AGPL
+License: MIT + file LICENSE
 Suggests:
     testthat,
     covr
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.2.0),
+    V8
 Imports:
     purrr,
     dplyr,
@@ -24,4 +25,5 @@ Imports:
     rvest,
     xml2,
     httr
-RoxygenNote: 6.0.1
+RoxygenNote: 7.2.1
+Encoding: UTF-8
